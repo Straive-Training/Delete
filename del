@@ -1,0 +1,9 @@
+Basic Comprehension / Retrieval
+Upload a PDF (like a research paper, documentation, or textbook chapter) and ask:
+“Summarize the main points of this PDF.”
+“What are the key definitions introduced in this document?”
+“List all the sections or headings in this PDF.”
+“What examples does the PDF give for the X concept?”
+Learning Outcome:
+ Understand text extraction, chunking, embeddings, and retrieval-based QA.
+
