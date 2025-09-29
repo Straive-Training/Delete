@@ -168,3 +168,12 @@ class Account:
         t = years
         A = P * ((1 + r / n) ** (n * t))
         return round(A, 2)
+
+
+Simple Interest Calculation (Balance * Rate).
+ 
+Compound Interest (Yearly + Quarterly compounding).
+ 
+Parameterized testing for multiple years.
+ 
+Edge cases (zero years, zero balance).
