@@ -188,5 +188,41 @@ Alice transfers 1000 to Bob.
 Write assertions for final balances of both accounts.
 Add an extra check that Alice’s total debits = 1500 and credits = 2000.
 
+=========================================================================NEXT==========================================================================================
 
 
+Write tests for multiple scenarios (e.g., 1-year loan vs 5-yer loan vs 30-year loan).
+ 
+Assert that total paid = principal + interest is correct.
+def calculate_emi(principal, annual_rate, years):
+    r = annual_rate / 12
+    n = years * 12
+    emi = (principal * r * (1 + r)**n) / ((1 + r)**n - 1)
+    return round(emi, 2)
+ 
+ 
+Write tests to ensure: transaction history
+ 
+Every deposit/withdraw updates the history correctly.
+ 
+The last entry always reflects the final balance.
+ 
+ 
+Integration Style Test
+ 
+Simulate a full year of banking:
+ 
+Start with 20,000.
+ 
+Deposit 500 monthly.
+ 
+Apply annual interest at 6%.
+ 
+Withdraw 3000 at year-end.
+ 
+Assert the final balance matches a manually calculated value.
+ 
+ 
+Test that a zero interest rate means the balance never grows.
+ 
+Test that a negative interest rate reduces the balance over time (like a penalty).
