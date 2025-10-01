@@ -13,3 +13,27 @@ Create multiple account objects and store them in a list or dictionary. Write co
 Extend the project so that every account has a unique account number generator.
 Implement a Base class Employee (for bank staff) and a Manager class that can approve loans for customers.
 How would you make this system scalable if thousands of users were using it? (Hint: think about data storage & design).
+
+
+class BankAccount:
+    def __init__(self, account_holder, balance=0):
+        self.account_holder = account_holder
+        self.__balance = balance   # Private attribute (encapsulation)
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+    def withdraw(self, amount):
+        if amount <= self.__balance:
+            self.__balance -= amount
+        else:
+            print("Insufficient funds!")
+
+    def get_balance(self):
+        return self.__balance
+
+# Usage
+account = BankAccount("Alice", 1000)
+account.deposit(500)
+account.withdraw(200)
+print(account.get_balance())  # 1500
