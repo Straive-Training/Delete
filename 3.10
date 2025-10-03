@@ -30,3 +30,12 @@ def run_etl(csv_file, db_file="bank.db"):
 if __name__ == "__main__":
     run_etl("bank_data.csv")
  
+
+
+Banking example :
+loan application/loan department/ home loan ,car loan , education loan ,personal loan
+share / trade market / mutual funds
+fixed deposit
+ 
+create a web application using mvc architecture, add flask , add pandas to extract the dataset , transform and prepare the data so that analysis can be done
+also add error handling, unit testing ,db connection, configure openapi like swagger documentation.
