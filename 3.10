@@ -1,0 +1,32 @@
+import pandas as pd
+import sqlite3
+
+class ETLError(Exception):
+    pass
+
+def run_etl(csv_file, db_file="bank.db"):
+    try:
+        # Extract
+        df = pd.read_csv(csv_file)
+        if df.empty:
+            raise ETLError("CSV file is empty!")
+
+        # Transform (basic validation)
+        df['balance'] = df['balance'].apply(lambda x: float(x) if x >= 0 else 0)
+
+        # Load
+        conn = sqlite3.connect(db_file)
+        df.to_sql("accounts", conn, if_exists="replace", index=False)
+        conn.close()
+
+        print("ETL Completed Successfully!")
+    except FileNotFoundError:
+        print(f"Error: File {csv_file} not found.")
+    except ETLError as e:
+        print(f"ETL Error: {e}")
+    except Exception as e:
+        print(f"Unexpected Error: {e}")
+
+if __name__ == "__main__":
+    run_etl("bank_data.csv")
+ 
