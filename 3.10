@@ -39,3 +39,24 @@ fixed deposit
  
 create a web application using mvc architecture, add flask , add pandas to extract the dataset , transform and prepare the data so that analysis can be done
 also add error handling, unit testing ,db connection, configure openapi like swagger documentation.
+
+
+
+
+Business Requirements & Rules • Bank Savings Account Holder will apply for home loan with the bank. Following information will be provided at the time of application.
+Description / Address of property for which loan is required, loan amount, tenure in years (5-20), Net Monthly Salary. Also upload image of property document.
+• Loan Approval - The system will approve loan amount up to maximum of 50 times Net monthly Salary. Mail will be sent to account holder informing about sanction
+of loan and monthly EMI (calculation given below). Loan Status becomes Approved. 
+• If requested loan amount is higher than eligible amount then account holder will have option of cancelling loan application OR going with the eligible loan amount
+(Loan Status = Approved). If account holder cancels loan application no Loan Account record will be created. 
+• When loan is approved a new Loan Account be created linking to the account holder savings account. It will also populate Loan Repayment Schedule as given below 
+(Status = Pending). Loan interest rate will be taken as 7% PA. 
+• Its assumed that loan is disbursed immediately and EMI will be applicable from next month. 
+• EMI = [P x R x (1+R)^N]/[(1+R)^N-1] where P is the approved / eligible loan amount, R rate of interest, N is tenure of the loan. 
+Since we are paying monthly installment Annual Interest Rate is divided by 12, N becomes number of years x 12 months. 
+• EMI will be deducted from Savings Account balance every month. Its assumed account has sufficient funds to pay the EMI, paid amount will be updated in Loan Repayment 
+Schedule. After deduction the status of loan account repayments schedule for the month will be set to Paid. Loan Account Status becomes OnGoing. After payment is 
+deducted mail will be sent to account holder that EMI has been deducted. 
+• E.g. So, assuming that you take a home loan of Rs 50 lakh with an interest rate of 12% PA for a tenure of 10 years,
+the approximate EMI will be: o P = Rs 50 lakh, R = 12/100/12 or 0.01 (convert to months), N = 10 years or 120 months o 
+EMI = [5000000 x 0.01 x (1+0.01)^120] / [(1+0.01)^120-1] o EMI = Rs 71,735.
