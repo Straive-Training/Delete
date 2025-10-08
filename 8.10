@@ -1,0 +1,56 @@
+import React from 'react';
+ 
+import Pic2 from './bill.jpg'
+import SingleComment from './SingleComment';
+ 
+const App =()  => {
+  return (
+    <div className='ui comments' >
+     <SingleComment name="Preeti singh"
+     date="Today at 5:00 pm"
+     text="Reactjs Components"
+     profile={Pic2}/>
+ 
+     <SingleComment name="Sachin Namdeo"
+     date="Today at 5:00 pm"
+     text="Angular Components"
+     profile={Pic2}/>
+ 
+ 
+     <SingleComment name="Meghna Bhattacharya"
+     date="Today at 5:00 pm"
+     text="Python scripting and Testing"
+     profile={Pic2}/>
+     
+    </div>
+  );
+}
+ 
+export default App;
+ 
+ 
+import React from "react";
+import Pic1 from './bill.jpg'
+let SingleComment = (props) =>{
+    return(
+        <div className='comment'>
+       <a href="/" className='avatar'>
+       <img src= {props.profile} alt="profile pic"></img>
+       </a>
+       <div className='content'>
+         <a href="/" className='author'>{props.name}</a>
+         <div className='metadata'>
+          <span className='dat'>{props.date}</span>
+           <div className='text'>
+           {props.text}
+         </div>
+         </div>
+       
+       </div>
+     </div>
+ 
+ 
+    )
+}
+export default SingleComment;
+ 
